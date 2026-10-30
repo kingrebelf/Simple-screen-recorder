@@ -7,7 +7,7 @@ if (-not $iscc) { throw 'Install Inno Setup 6 before building.' }
 py -3.11 -m pip install -r requirements.txt
 if ($LASTEXITCODE) { throw 'Dependency installation failed.' }
 $icon = (Resolve-Path 'app.ico').Path
-py -3.11 -m PyInstaller --noconfirm --clean --windowed --onedir --name 'Simple Screen Recorder' --icon $icon --add-data "${icon};." --collect-all soundcard --collect-all soundfile app.py
+py -3.11 -m PyInstaller --noconfirm --clean --windowed --onedir --name 'Simple Screen Recorder' --icon $icon --add-data "${icon};." --collect-all soundcard --collect-all soundfile --collect-all customtkinter app.py
 if ($LASTEXITCODE) { throw 'Application build failed.' }
 Copy-Item $ffmpeg 'dist\Simple Screen Recorder\_internal\ffmpeg.exe'
 $ffmpegRoot = Split-Path (Split-Path $ffmpeg)
@@ -15,3 +15,4 @@ if (-not (Test-Path (Join-Path $ffmpegRoot 'LICENSE'))) { throw 'FFmpeg LICENSE 
 Copy-Item (Join-Path $ffmpegRoot 'LICENSE') 'dist\Simple Screen Recorder\FFmpeg-LICENSE.txt'
 & $iscc installer.iss
 if ($LASTEXITCODE) { throw 'Installer build failed.' }
+

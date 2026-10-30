@@ -1,7 +1,7 @@
 [Setup]
 AppId={{4DE7354F-5513-4A07-B894-1EA16F3F644E}
 AppName=Simple Screen Recorder
-AppVersion=1.1.0
+AppVersion=1.2.0
 AppPublisher=Simple Screen Recorder
 DefaultDirName={localappdata}\Programs\Simple Screen Recorder
 DefaultGroupName=Simple Screen Recorder
@@ -24,3 +24,4 @@ Name: "{autodesktop}\Simple Screen Recorder"; Filename: "{app}\Simple Screen Rec
 Name: desktopicon; Description: "Create a desktop shortcut"; Flags: unchecked
 [Run]
 Filename: "{app}\Simple Screen Recorder.exe"; Description: "Launch Simple Screen Recorder"; Flags: nowait postinstall skipifsilent
+
